@@ -1,38 +1,61 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
+    font-family: 'Courier New', monospace;
+    background-color: #0a0a0a;
+    background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(255, 0, 255, 0.1) 25%, rgba(255, 0, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.1) 75%, rgba(0, 255, 255, 0.1) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(255, 0, 255, 0.1) 25%, rgba(255, 0, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.1) 75%, rgba(0, 255, 255, 0.1) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
 }
 
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(26, 26, 26, 0.9);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff,
+                0 0 30px #0ff,
+                inset 0 0 15px #0ff;
+    position: relative;
+    overflow: hidden;
 }
 
-.question {
-    margin-bottom: 15px;
-    text-align: left;
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: linear-gradient(45deg, transparent 35%, rgba(255, 0, 255, 0.1) 50%, transparent 65%);
+    animation: glow 3s infinite linear;
+    pointer-events: none;
 }
 
 button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid #0ff !important;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #0056b3;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    box-shadow: 0 0 15px #0ff;
+    transform: translateY(-2px);
 }
 
 #result {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+h1, h2 {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+}
+
+@keyframes glow {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
